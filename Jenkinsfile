@@ -46,6 +46,6 @@ node {
     stage('Run image') {
             sh 'docker container stop $(docker ps -a -q)'
             sh 'docker rm -f $(docker ps -a -q)'
-            image.run().withRun('-p 8000:8000')
+            image.run('-p 8000:8000')
     }
 }
