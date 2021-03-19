@@ -44,6 +44,8 @@ node {
     }
 
     stage('Run image') {
+            sh 'docker container stop $(docker ps -a -q)'
+            sh 'docker rm -f $(docker ps -a -q)'
             image.run()
     }
 }
