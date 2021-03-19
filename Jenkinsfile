@@ -1,5 +1,6 @@
 node {
     def app
+    def image
 
     stage('Clone repository') {
         /* Let's make sure we have the repository cloned to our workspace */
@@ -40,5 +41,9 @@ node {
             image.pull()
             image.run()
         }
+    }
+
+    stage('Run image') {
+            image.run()
     }
 }
