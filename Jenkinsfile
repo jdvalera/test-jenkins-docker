@@ -33,4 +33,11 @@ node {
             app.push("latest")
         }
     }
+
+    stage('Pull image') {
+        docker.withRegistry('https://registry.hub.docker.com', 'DOCKER-HUB-CREDENTIALS') {
+            image = docker.image("jdvalera/hellonode:${env.BUILD_NUMBER}")
+            image.pull()
+        }
+    }
 }
